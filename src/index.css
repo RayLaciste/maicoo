@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap");
+@import "tailwindcss";
+
+html, body {
+  width: 100dvw;
+  height: 100dvh;
+  overflow: hidden;
+  font-family: "Merriweather", serif;
+  background-color: black;
+}
+
+@layer base {
+
+  nav {    
+    @apply flex items-center justify-between text-white bg-black h-20 px-6;
+    #logo {
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+    }
+
+    ul {
+      margin: auto 1.5rem;
+      padding: 0;
+      display: flex;
+
+      li {
+        padding: 1rem;
+        display: block;
+
+      }
+    }
+  }
+
+  #main-content {
+    background-image: url("/images/HeartofPulpCropped.jpeg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* background-position: center; */
+    height: 100dvh;
+    width: 100vw;
+  }
+  
+}
