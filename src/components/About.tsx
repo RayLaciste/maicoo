@@ -2,7 +2,7 @@ const About = () => {
   return (
     <section className="w-full h-screen">
       <div className="xl:w-3/5 md:w-4/5 w-11/12 h-full m-auto flex flex-col sm:flex-row items-center sm:justify-between justify-center">
-        <div className="sm:w-5/12 h-[500px]">
+        <div className="sm:w-5/12 h-125">
           <img
             className="h-full w-full object-cover"
             src="/images/about.jpg"
