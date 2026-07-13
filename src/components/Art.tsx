@@ -1,59 +1,61 @@
-import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogTitle,
+  DialogClose,
+} from "@/components/ui/dialog";
+import { useState } from "react";
+import { artworks } from "@/constants/index";
+
 const Art = () => {
+  const [selectedArt, setSelectedArt] = useState<{
+    src: string;
+    title: string;
+    description: string;
+    orientation: string;
+  } | null>(null);
   return (
-    <div className="image-grid">
-      <div className="horizontal">
-        <img src="/images/EstrangedTemptation.JPG" alt="Estranged Temptation" />
+    <>
+      <div className="image-grid">
+        {artworks.map((art) => (
+          <div
+            key={art.src}
+            className={`${art.orientation} cursor-pointer`}
+            onClick={() => setSelectedArt(art)}
+          >
+            <img className={art.orientation} src={art.src} alt={art.title} />
+          </div>
+        ))}
       </div>
-      <div>
-        <img src="/images/FlesoftheFruit.jpeg" alt="Fles of the Fruit" />
-      </div>
-      <div>
-        <img src="/images/IMG_6046.jpg" alt="" />
-      </div>
-      <div className="vertical">
-        <img src="/images/IMG_6047.jpg" alt="" />
-      </div>
-      <div>
-        <img src="/images/IMG_6178.jpg" alt="" />
-      </div>
-      <div>
-        <img src="/images/IMG_6195.jpg" alt="" />
-      </div>
-      <div>
-        <img src="/images/IMG_6332.jpg" alt="" />
-      </div>
-      <div className="vertical">
-        <img src="/images/IMG_6358.jpg" alt="" />
-      </div>
-      <div>
-        <img src="/images/IMG_6582 (1).jpg" alt="" />
-      </div>
-      <div>
-        <img src="/images/IMG_6633.jpg" alt="" />
-      </div>
-      <div className="horizontal">
-        <img src="/images/IMG_6634.jpg" alt="" />
-      </div>
-      <div className="vertical">
-        <img src="/images/Michael Robles ARTS 327 Bound by Flesh .JPG" alt="" />
-      </div>
-      <div>
-        <img src="/images/Robles_Michael_ARTS427_The Consumed.jpeg" alt="" />
-      </div>
-      <div>
-        <img
-          src="images/Robles_Michael_Into Dissolution_Oil on Canvas 2025.jpg"
-          alt=""
-        />
-      </div>
-      <div className="horizontl">
-        <img src="images/The Consumer Cropped.JPG" alt="" />
-      </div>
-      <div className="horizontal">
-        <img src="images/IMG_7683.jpg" alt="" />
-      </div>
-    </div>
+      <Dialog open={!!selectedArt} onOpenChange={() => setSelectedArt(null)}>
+        <DialogContent
+          showCloseButton={false}
+          className="sm:max-w-6xl bg-transparent shadow-none ring-0 border-0 p-0"
+        >
+          {selectedArt && (
+            <>
+              <img
+                src={selectedArt.src}
+                alt={selectedArt.title}
+                className="max-h-[45vh] flex object-center m-auto object-contain"
+              />
+
+              <div className="mt-5 text-center">
+                <DialogTitle className="text-2xl font-semibold text-white">
+                  {selectedArt.title}
+                </DialogTitle>
+
+                <DialogDescription className="mt-2 max-w-2xl mx-auto text-gray-300">
+                  {selectedArt.description}
+                </DialogDescription>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
+    </>
   );
 };
 
