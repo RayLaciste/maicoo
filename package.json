@@ -16,6 +16,7 @@
     "@tailwindplus/elements": "^1.0.22",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "cn": "^0.3.2",
     "embla-carousel-react": "^8.6.0",
     "lucide-react": "^1.23.0",
     "react": "^19.2.7",
