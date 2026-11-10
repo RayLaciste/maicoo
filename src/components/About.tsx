@@ -5,7 +5,7 @@ const About = () => {
         <div className="sm:w-5/12 h-125">
           <img
             className="h-full w-full object-cover"
-            src="/images/about.jpg"
+            src="/images/placeholders/about.jpg"
             alt=""
           />
         </div>
